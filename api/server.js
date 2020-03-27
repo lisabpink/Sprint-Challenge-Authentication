@@ -19,6 +19,8 @@ server.use('/', (err, req, res, next) => {
     console.log("ERROR: ", err)
     res.status(500).json("Something went wrong")
 })
-
+server.get("/", (req, res) => {
+    res.status(200).json({ api: "working" });
+  });
 
 module.exports = server;
