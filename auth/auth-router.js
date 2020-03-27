@@ -1,32 +1,29 @@
-const router = require('express').Router();
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const router = require("express").Router();
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
-const Users = require('../users/users-model.js');
+const Users = require("../users/users-model.js");
 
-
-
-router.post('/register', (req, res) => {
+router.post("/register", (req, res) => {
   // implement registration
   let user = req.body;
 
   if (!user.username || !user.password) {
-    res.status(400).json({ message: "Please provide a username and password" })
+    res.status(400).json({ message: "Please provide a username and password" });
   } else {
-
-  const hash = bcrypt.hashSync(user.password, 12);
-  user.password = hash;
-  Users.add(user)
-  .then(saved => {
-    res.status(201).json(saved)
-  })
-  .catch(err => {
-    res.status(500).json(err)
-  })
-}
+    const hash = bcrypt.hashSync(user.password, 12);
+    user.password = hash;
+    Users.add(user)
+      .then(saved => {
+        res.status(201).json(saved);
+      })
+      .catch(err => {
+        res.status(500).json(err);
+      });
+  }
 });
 
-router.post('/login', (req, res) => {
+router.post("/login", (req, res) => {
   // implement login
   let { username, password } = req.body;
 
@@ -39,13 +36,13 @@ router.post('/login', (req, res) => {
         res.status(200).json({
           message: `Welcome ${username}`,
           token
-        })
+        });
       } else {
-        res.status(400).json({ message: "Invalid credentials" })
+        res.status(400).json({ message: "Invalid credentials" });
       }
     })
     .catch(err => {
-      res.status(500).json(err)
+      res.status(500).json(err);
     });
 });
 
@@ -53,16 +50,15 @@ function getJwtToken(user) {
   const payload = {
     id: user.id,
     username: user.username
-  }
-
-  const secret = process.env.JWT_SECRET || 'keep it secret';
-
-  const options = {
-    expiresIn: '1hr'
   };
 
-  return jwt.sign(payload, secret, options)
+  const secret = process.env.JWT_SECRET || "keep it secret";
 
+  const options = {
+    expiresIn: "1hr"
+  };
+
+  return jwt.sign(payload, secret, options);
 }
 
 module.exports = router;

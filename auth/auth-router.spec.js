@@ -7,7 +7,7 @@ describe("auth endpoints", function() {
     beforeEach(async () => {
       await db("users").truncate();
     });
-    
+
     it("should return 200 OK", async function() {
       return await request(server)
         .post("/api/auth/register")
@@ -26,7 +26,6 @@ describe("auth endpoints", function() {
   });
 
   describe("POST /api/auth/login", function() {
-      
     it("should return 200 OK", async function() {
       return await request(server)
         .post("/api/auth/login")
@@ -37,8 +36,8 @@ describe("auth endpoints", function() {
 
     it("should test user logging in", async () => {});
   });
-  
-describe("should test registring and loggin in", () => {
+
+  describe("should test registring and loggin in", () => {
     it("should register users", async () => {
       const newUser = { username: "Pie Monster", password: "1234" };
       const res = await request(server)
@@ -46,20 +45,14 @@ describe("should test registring and loggin in", () => {
         .send(newUser);
       expect(res.status).toBe(201);
     });
-  
+
     it("should test the login function", async () => {
       const credential = { username: "Pie Monster", password: "1234" };
       const res = await request(server)
         .post("/api/auth/login")
         .send(credential);
-  
+
       expect(res.status).toBe(200);
     });
   });
 });
-
-
-
-// const hasToken = res => {
-//   res.body.should.have.property("token");
-// };
