@@ -16,12 +16,12 @@ The Minimum Viable Product must be completed in three hours.
 
 Follow these steps to set up and work on your project:
 
-- [ ] Create a forked copy of this project.
-- [ ] Add your _Team Lead_ as collaborator on Github.
-- [ ] Clone your forked version of the Repository.
-- [ ] Create a new Branch on the clone: git checkout -b `firstName-lastName`.
-- [ ] Implement the project on this Branch, committing changes regularly.
-- [ ] Push commits: git push origin `firstName-lastName`.
+- [ X ] Create a forked copy of this project.
+- [ X ] Add your _Team Lead_ as collaborator on Github.
+- [ X ] Clone your forked version of the Repository.
+- [ X ] Create a new Branch on the clone: git checkout -b `firstName-lastName`.
+- [ X ] Implement the project on this Branch, committing changes regularly.
+- [ X ] Push commits: git push origin `firstName-lastName`.
 
 Follow these steps for completing your project.
 
@@ -38,13 +38,21 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] What is the purpose of using _sessions_?
+-[ X ] What is the purpose of using _sessions_?
 
-- [ ] What does bcrypt do to help us store passwords in a secure manner.
+        Sessions allows a user to log into a website and stay logged in if they change pages within the website. You can also set it so that a person can go to another website and back as long as it is in the time period that you set.
 
-- [ ] What does bcrypt do to slow down attackers?
+-[ X ] What does bcrypt do to help us store passwords in a secure manner.
 
-- [ ] What are the three parts of the JSON Web Token?
+        Bcrypt allows us to encrypt passwords that users create. It also allows up to check passwords for authorization. It does this without out ever sending the actual password, keeping it secure. They password is also encrypted in the database for security.
+
+-[ X ] What does bcrypt do to slow down attackers?
+
+        It hashes a password and encrypts it. It is very difficult to break the encryption, keeping the password safe. Bcrypt allows you to hash the password many times for added security.
+
+-[ X ] What are the three parts of the JSON Web Token?
+
+         Headers, payload, signature.
 
 ## Minimum Viable Product
 
