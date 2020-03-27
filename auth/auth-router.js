@@ -37,7 +37,7 @@ router.post('/login', (req, res) => {
         const token = getJwtToken(user);
 
         res.status(200).json({
-          message: "Logged in successfully!",
+          message: `Welcome ${username}`,
           token
         })
       } else {
